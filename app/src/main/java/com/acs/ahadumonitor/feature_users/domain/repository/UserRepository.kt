@@ -1,0 +1,16 @@
+package com.acs.ahadumonitor.feature_users.domain.repository
+
+import com.acs.ahadumonitor.feature_users.domain.model.User
+import kotlinx.coroutines.flow.Flow
+
+interface UserRepository {
+    fun getUsers(): Flow<List<User>>
+
+    suspend fun getUserById(id: Int): User?
+
+    suspend fun insertUser(user: User)
+
+    suspend fun updateHost(ip: String, status: String)
+
+    suspend fun deleteUser(user: User)
+}
