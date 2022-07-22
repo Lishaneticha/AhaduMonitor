@@ -15,6 +15,9 @@ interface UserDao {
     @Query("UPDATE User SET status = :status WHERE ip = :ip")
     suspend fun updateHost(ip: String, status: String)
 
+    @Query("UPDATE User SET status = :status")
+    suspend fun updateAllHost(status: String)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: User)
 

@@ -12,5 +12,7 @@ interface UserRepository {
 
     suspend fun updateHost(ip: String, status: String)
 
+    suspend fun updateAllHost(status: String)
+
     suspend fun deleteUser(user: User)
 }

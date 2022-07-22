@@ -1,5 +1,6 @@
 package com.acs.ahadumonitor.feature_users.presentation.home
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -10,6 +11,7 @@ import androidx.compose.material.icons.outlined.Add
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,6 +31,12 @@ fun HomeScreen(
 ) {
     val state = viewModel.state.value
     val isLoading = viewModel.isLoading.value
+    val noResult = viewModel.noResult.value
+    val emptyRequest = viewModel.emptyRequest.value
+    val context = LocalContext.current
+
+    if (noResult) Toast.makeText(context, "Network error: please make sure you connect to the right network or the server is up!", Toast.LENGTH_LONG).show()
+    if (emptyRequest) Toast.makeText(context, "Please create a Host to check!", Toast.LENGTH_LONG).show()
 
     Scaffold(
         topBar = {

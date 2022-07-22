@@ -25,6 +25,10 @@ class UserRepositoryImpl @Inject constructor(
         dao.updateHost(ip, status)
     }
 
+    override suspend fun updateAllHost(status: String) {
+        dao.updateAllHost(status)
+    }
+
     override suspend fun deleteUser(user: User) {
         dao.deleteUser(user)
     }

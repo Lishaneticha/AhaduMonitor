@@ -29,7 +29,7 @@ fun UserItem(
             .padding(horizontal = 14.dp, vertical = 12.dp),
         elevation = 3.dp,
         shape = RoundedCornerShape(corner = CornerSize(16.dp)),
-        backgroundColor = if (user.status == "dead") Color(0xFFF498AD) else Color.White
+        backgroundColor = if (user.status.equals("dead", true)) Color(0xFFF498AD) else if(user.status.equals("alive", true)) Color(0xFFA8E7AC) else Color(0xFFB192FF)
     ) {
         Row(
             modifier = Modifier.padding(16.dp),
